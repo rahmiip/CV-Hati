@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CV. Hidayah Alam Tirta Ilahi</title>
+		<link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.3.1.min.css">
+	<link rel="stylesheet" href="demo/css/jqm-demos.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="lola/baru.css">
+	<link href="date/faisal.css" rel="stylesheet">
+	<link href="date/jquery.mobile.min.css" rel="stylesheet">
+
+    <script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="demo/js/jquery.mobile.demos.js"></script>
+	<script src="js/jquery.mobile-1.3.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+		<script src="date/jquery-ui.custom.js"></script>
+		<script src="date/faisal.js"></script>
+    <script src="proses/cari.js"></script>
+</head>
+<body>
+
+<body style="background-color:#CCC;">
+<div data-role="page" class="jqm-demos">
+
+    <div data-role="header" data-theme="b" data-position="fixed">
+		<h5>CV. HATI</h5>
+		<h5>Bangkinang-Riau</h5>
+		<a href="#" class="jqm-navmenu-link" data-icon="bars" data-iconpos="notext">Menu</a>    
+	</div><!-- /header -->
+
+<div data-role="content">
+	<div class="lg-container">
+		<center><h3>Barang Masuk</h3></center>
+			 <div id="tampilData" style="display:none;text-align:center;">
+				<ul id="sispakList" data-role="listview" data-divider-theme="f">
+      
+         		</ul>
+            </div>
+			<div id="jml" style="display:none;text-align:center;">
+				<ul id="hasil" data-role="listview" data-divider-theme="f">
+         		</ul>
+            </div>
+		<form id="lg-form" name="lg-form" method="GET">
+
+	<div data-role="fieldcontain">
+
+				<div data-role="ui-fieldcontain">
+						<center><input type="text" name="tanggal_awal" id="tanggal_awal" value="" placeholder="Tanggal Awal"  /></center>
+					</div><br>
+					
+			<div data-role="ui-fieldcontain">
+						<center><input type="text" name="tanggal_akhir" id="tanggal_akhir" value=""  placeholder="Tanggal Akhir"/></center>
+					</div><br>
+		
+				<div>	
+					<center><a href="#" id="proses" type="submit" data-role="button" data-inline="true" data-theme="b">Cari</a></center>
+				</div>
+			</div>
+			</form>
+			</div>
+			
+	
+
+    		
+        <div id="conn_failed" style="display:none;text-align:center;color:#F00;">
+			<div class="alert alert-danger">
+                <strong>Connection Failed </strong>
+            </div>
+				<br><br><br>
+                <a href="gudang.html" data-role="button" data-inline="true" data-theme="b" data-ajax="false">Back</a>
+        </div>
+             
+		</div><!-- /content -->
+    
+      <div data-role="panel" class="jqm-nav-panel jqm-navmenu-panel" data-position="left" data-display="reveal" data-theme="Q">
+        <ul data-role="listview" data-theme="Q" data-divider-theme="Q" class="jqm-list">
+			<li><a href="barang.html" data-ajax="false" data-rel="page" data-transition="slide" data-inline="true"><img src="css/menu/tagihan.png" class="ui-li-icon ui-corner-none">Data Barang</a></li>
+			<li><a href="cari.html" data-ajax="false" data-rel="page" data-transition="slide" data-inline="true"><img src="css/menu/money.png" class="ui-li-icon ui-corner-none">Lihat Barang Masuk</a></li>
+			<li><a href="cari2.html" data-ajax="false" data-rel="page" data-transition="slide" data-inline="true"><img src="css/menu/money.png" class="ui-li-icon ui-corner-none">Lihat Penjualan</a></li>
+			<li><a href="index.html" data-ajax="false" data-rel="page" data-transition="slide" data-inline="true"><img src="css/menu/logout.png" class="ui-li-icon ui-corner-none">Logout</a></li>
+		</ul>
+	</div>
+      		<script>
+				/*
+				 * Datepicker Demos
+				 */
+				$(document).on("pagecreate", function() {
+					$("#tanggal_awal").datepicker();
+					$("#tanggal_akhir").datepicker();
+					$("#DP2").prop("readonly", true).datepicker();
+					$("#DP3").prop("readonly", true).datepicker({
+						showButtonPanel: true
+					});
+					$("#DP4").datepicker({
+						showOn: "button",
+						beforeShow: function() {
+							$(this).prop("readonly", true);
+						},
+						onClose: function() {
+							$(this).prop("readonly", false);
+						}
+					});
+					$("#DP5").on("focus", function() {
+						$("#dp-fullsize").popup("open");
+					});
+					$("#dp-fullsize").datepicker({
+						altField: "#DP5",
+						onSelect: function() {
+							$(this).popup("close");
+						}
+					});
+				});
+			</script>	           
+    
+
+</div><!-- /page -->
+</body>
+</html>

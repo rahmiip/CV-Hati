@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CV. Hidayah Alam Tirta Ilahi</title>
+	<link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.3.1.min.css">
+	<link rel="stylesheet" href="demo/css/jqm-demos.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="demo/js/jquery.mobile.demos.js"></script>
+	<script src="js/jquery.mobile-1.3.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		$("#login").click(function(){
+			var url_admin	 = 'http://loarlo.com/mobile/admin.html';
+			var url_index	 = 'http://loarlo.com/mobile/index.html';
+			var action = $("#lg-form").attr('action');
+			var form_data = {
+				username: $("#username").val(),
+				password: $("#password").val(),
+				is_ajax: 1
+			};
+			
+			$.ajax({
+				type: "GET",
+				dataType : 'json',
+				url: action,
+				data: form_data,
+				success : function(data){	
+					var hasil;
+					SistemPakar = data.items;
+					$.each(SistemPakar, function(index, loaddata) {
+							hasil = loaddata.ret;
+					});
+				
+					if(hasil == "1") {
+						//alert('Selamat Datang Pimpinan');
+						window.location = url_admin;
+						
+						}
+			
+					else if (hasil == "2"){
+						//alert('Maaf, Username atau Password Anda Salah');
+						//window.location = url_index;
+						$("#message").html('<p class="error">Maaf, username atau password yang anda masukkan salah</p>');
+						
+						}
+				}	
+			});
+			return false;
+		});
+	}); 
+	</script>
+</head>
+<body style="background-color:#CCC;">
+<div data-role="page" class="jqm-demos">
+
+    <div data-role="header"  data-theme="b" data-position="fixed">
+		<h5>CV. HATI</h5>
+		<h5>Bangkinang-Riau</h5>
+	</div><!-- /header -->
+
+ 
+            
+        <div id="connection_failed" style="display:none;text-align:center;">
+            <b>Connection trouble. Try again</b>
+            <br><br>
+			<a href="index.html" id="back" data-role="button" data-inline="true" data-icon="back" data-theme="b" data-ajax="false">Back To Login</a>
+        </div>
+            
+        <div id="wrong_password" style="display:none;">
+            <div class="alert alert-danger" style="text-align:center;">
+                <strong>Email and password not match. Try again...!</strong>
+            </div>
+                <br>
+                <div style="text-align:center;">
+					<a href="index.html" id="back" data-role="button" data-inline="true" data-icon="back" data-theme="b" data-ajax="false">Back To Login</a>
+            	</div>
+        </div>
+            
+		<div class="lg-container">
+			<center><h3>Please Sign in</h3></center>
+			<br>
+			<form action="login.php" id="lg-form" name="lg-form" method="post">
+				<div>
+					<input type="text" name="username" id="username" placeholder="username" />
+				</div>
+			
+				<div>
+					<input type="password" name="password" id="password" placeholder="password" />
+				</div>
+			
+				<div>	
+					<center><a id="login" type="submit" data-role="button" data-inline="true" data-theme="b" data-ajax="false">Sign in</a></center>
+				</div>
+			</form>
+			<div id="message"></div>
+		</div>
+            
+    </div><!-- /content -->
+    
+    <div id="loading" style="text-align:center;font-weight:bold;visibility:hidden;">Checking Data...!</div>
+    
+	
+</div><!-- /page -->
+</body>
+</html>

@@ -1,0 +1,20 @@
+.demo-info { margin: 0.8em 0 0; font-size: 1em; }
+		.ui-datepicker { display: none; }
+		/* set height and left/right margin to accomodate prev/next icons */
+		.ui-datepicker-header { position: relative; padding: 0.3125em 2.0625em; line-height: 1.75em; text-align: center; }
+		.ui-datepicker-header .ui-btn { margin: -1px 0 0 0; }
+		/* fixed width layout for calendar; cells are fixed width */
+		.ui-datepicker-calendar { border-collapse: collapse; line-height: 2; }
+		.ui-datepicker-calendar .ui-btn { margin: 0; padding: 0; width: 2em; line-height: inherit; }
+		.ui-datepicker-today .ui-btn { text-decoration: underline !important; }
+		.ui-datepicker-days-cell-over .ui-btn { border-color: inherit !important; }
+		.ui-datepicker-buttonpane .ui-btn { float: left; margin: 0.5em 0 0; padding: 0.5em 1em; }
+		.ui-datepicker-buttonpane .ui-btn:last-child { float: right; }
+		/* class that can be added to datepicker <input> element's wrapper; makes room for trigger button */
+		.dp-input-button-wrap { position: relative; padding-right: 2.5em; }
+		.dp-input-button-wrap .ui-btn { top: 0.1875em; margin: 0; }
+		/* jQM framework wraps popup content inside a div with the ID <div-id>-popup */
+		#dp-fullsize-popup { width: 80%; }
+		/* fluid width layout for calendar; table is 100% wide; cells size automatically */
+		.ui-datepicker-inline .ui-datepicker-calendar { width: 100%; }
+		.ui-datepicker-inline .ui-datepicker-calendar .ui-btn { width: auto; }
